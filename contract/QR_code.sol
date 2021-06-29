@@ -1,9 +1,10 @@
+// SPDX-License-Identifier: MIT
 
 pragma solidity ^0.6.7;
 
-import "https://github.com/smartcontractkit/chainlink/blob/master/evm-contracts/src/v0.6/interfaces/AggregatorV3Interface.sol";
+import "@chainlink/contracts/src/v0.6/interfaces/AggregatorV3Interface.sol";
 
-contract FruityMarket {
+contract QR_code {
 
     AggregatorV3Interface internal priceFeed;
 

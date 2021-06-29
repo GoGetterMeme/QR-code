@@ -11,47 +11,47 @@ const aggregatorV3InterfaceABI =
             "inputs": [],
             "stateMutability": "nonpayable",
             "type": "constructor"
-        },
-        {
+          },
+          {
             "anonymous": false,
             "inputs": [
-                {
-                    "indexed": false,
-                    "internalType": "address",
-                    "name": "",
-                    "type": "address"
-                },
-                {
-                    "indexed": false,
-                    "internalType": "uint256",
-                    "name": "",
-                    "type": "uint256"
-                }
+              {
+                "indexed": false,
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              },
+              {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
             ],
             "name": "Received",
             "type": "event"
-        },
-        {
+          },
+          {
             "inputs": [],
             "name": "getLatestPrice",
             "outputs": [
-                {
-                    "internalType": "int256",
-                    "name": "",
-                    "type": "int256"
-                }
+              {
+                "internalType": "int256",
+                "name": "",
+                "type": "int256"
+              }
             ],
             "stateMutability": "view",
             "type": "function"
-        },
-        {
+          },
+          {
             "stateMutability": "payable",
             "type": "receive"
-        }
+          }
     ]
 
 // Price Feed Address
-const addr = "0xC8f872aEe06663b900c067Dfd3D87813e6A4F72A";
+const addr = "0xC60974bd048902B4f4ACb7fDE5130C7d11b0fd19";
 document.getElementById("address").innerText = addr;
 
 // Set up contract instance
