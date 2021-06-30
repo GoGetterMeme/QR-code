@@ -65,7 +65,7 @@ export function modalComponent() {
             document.getElementById("fimg").src = image;
             let price = item.getAttribute("data-price");
             amountToPay = Number.parseFloat(price / ethPrice).toPrecision(2);
-            document.getElementById("fruit-price").innerText = 'COST $' + price + ' - PAY ' + amountToPay + ' ETH';
+            document.getElementById("fruit-price").innerText = 'COST $' + price + ' - PAY ' + amountToPay + ' USDC';
         })
     })
 

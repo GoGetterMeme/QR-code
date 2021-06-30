@@ -10,11 +10,11 @@ contract QR_code {
 
     /**
      * Network: Kovan
-     * Aggregator: ETH/USD
-     * Address: 0x9326BFA02ADD2366b30bacB125260Af641031331
+     * Aggregator: USDC/USD
+     * Address: 0xA73b861925E3e220A2254DFD20C507eF21Eb292A
      */
     constructor() public {
-        priceFeed = AggregatorV3Interface(0x9326BFA02ADD2366b30bacB125260Af641031331);
+        priceFeed = AggregatorV3Interface(0xA73b861925E3e220A2254DFD20C507eF21Eb292A);
     }
     
     /**

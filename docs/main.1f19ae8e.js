@@ -546,7 +546,7 @@ function modalComponent() {
       document.getElementById("fimg").src = image;
       var price = item.getAttribute("data-price");
       exports.amountToPay = amountToPay = Number.parseFloat(price / _web3entry.ethPrice).toPrecision(2);
-      document.getElementById("fruit-price").innerText = 'COST $' + price + ' - PAY ' + amountToPay + ' ETH';
+      document.getElementById("fruit-price").innerText = 'COST $' + price + ' - PAY ' + amountToPay + ' USDC';
     });
   });
   mdl.addEventListener('modal:show', function () {
@@ -606,7 +606,7 @@ var aggregatorV3InterfaceABI = [{
   "type": "receive"
 }]; // Price Feed Address
 
-var addr = "0xC60974bd048902B4f4ACb7fDE5130C7d11b0fd19";
+var addr = "0xf506771A3FB4386CC192ffF6B8534cDF084c3a6B";
 document.getElementById("address").innerText = addr; // Set up contract instance
 
 var priceFeed = new web3.eth.Contract(aggregatorV3InterfaceABI, addr);
@@ -617,16 +617,16 @@ function web3entryComponent() {
   //Make call to latestRoundData()
   priceFeed.methods.getLatestPrice().call().then(function (price) {
     // Do something with roundData
-    exports.ethPrice = ethPrice = price / 1.e8;
-    console.log("Ethereum Price: ", price / 1.e8);
+    exports.ethPrice = ethPrice = price / 1.e18;
+    console.log("USDC Price: ", price / 1.e18);
   });
   priceFeed.events.Received(function (error, event) {
     if (event) {
       var receivedAmount = event.returnValues[1];
       console.log(receivedAmount);
-      console.log(_modal.amountToPay * 1e18);
+      console.log(_modal.amountToPay * 1e2);
 
-      if (receivedAmount >= _modal.amountToPay * 1e18) {
+      if (receivedAmount >= _modal.amountToPay * 1e2) {
         (0, _device.withdrawFruit)('H');
         document.getElementsByClassName("modal-card-body")[0].innerHTML = "\n        <center>\n        <div class=\"columns is-vcentered has-background-primary\">\n            <div class=\"column\">\n                <strong class=\"has-text-black\">\n                Payment Succeeded\n                </strong>\n                <br>\n            </div>\n        </div>\n        <div class=\"columns is-vcentered\">\n            <div class=\"column\">\n                <figure class=\"image is-128x128\">\n                <img src=\"basket.png\" alt=\"\">\n                </figure>\n            </div>\n        </div>\n        <div class=\"columns is-vcentered has-background-info-light\">\n            <div class=\"column\">\n               <strong class=\"has-text-black\">You can now withdraw your purchase</strong> \n            </div>\n        </div>\n\n    </center>\n        ";
       } else {
@@ -699,7 +699,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63812" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61552" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

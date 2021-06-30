@@ -51,7 +51,7 @@ const aggregatorV3InterfaceABI =
     ]
 
 // Price Feed Address
-const addr = "0xC60974bd048902B4f4ACb7fDE5130C7d11b0fd19";
+const addr = "0xf506771A3FB4386CC192ffF6B8534cDF084c3a6B";
 document.getElementById("address").innerText = addr;
 
 // Set up contract instance
@@ -64,16 +64,16 @@ export function web3entryComponent() {
     priceFeed.methods.getLatestPrice().call()
         .then((price) => {
             // Do something with roundData
-            ethPrice = price / 1.e8;
-            console.log("Ethereum Price: ", price / 1.e8)
+            ethPrice = price / 1.e18;
+            console.log("USDC Price: ", price / 1.e18)
         });
 
     priceFeed.events.Received((error, event) => {
         if (event) {
             let receivedAmount = event.returnValues[1];
             console.log(receivedAmount);
-            console.log(amountToPay * 1e18);
-            if (receivedAmount >= amountToPay * 1e18) {
+            console.log(amountToPay * 1e2);
+            if (receivedAmount >= amountToPay * 1e2) {
                 withdrawFruit('H');
                 document.getElementsByClassName("modal-card-body")[0].innerHTML = `
         <center>
